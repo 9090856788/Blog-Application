@@ -3,9 +3,10 @@ import React from 'react';
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
   Link,
 } from "react-router-dom";
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,13 @@ const router = createBrowserRouter([
   element: (
       <Link to="Register">Register</Link>
   )
+},
+
+{
+  path: '/dashboard',
+  element: (
+      <Link to="Dashboard">Dashboard</Link>
+  )
 }
 ])
 
@@ -56,7 +64,9 @@ const App = () => {
   
   return (
     <>
+    <Header/>
     <RouterProvider router={router} />
+    <Footer/>
     </>
     )
   }
