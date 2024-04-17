@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Navbar } from "flowbite-react";
+import { Navbar, TextInput, Button } from "flowbite-react";
+import { AiOutlineSearch } from "react-icons/ai";
 
 const Header = () => {
   return (
@@ -12,6 +13,18 @@ const Header = () => {
           </span>
           Blog
         </div>
+        <form>
+          <TextInput
+            type="text"
+            placeholder="Search blogs here ..."
+            rightIcon={AiOutlineSearch}
+            required
+            className="hidden lg:inline"
+          />
+        </form>
+        <Button className="w-35 h-30 lg:hidden" color="grey" pill>
+          <AiOutlineSearch />
+        </Button>
       </Navbar>
     </>
   );
