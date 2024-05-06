@@ -15,9 +15,8 @@ const Header = () => {
           className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white "
         >
           <span className="px-2 py-1 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-md text-xl text-center me-1 mb-1 text-black">
-            ZeroTech
+            ZeroFy
           </span>
-          Blog
         </a>
         <form>
           <TextInput 
@@ -36,7 +35,7 @@ const Header = () => {
             <FaMoon/>
           </Button>
           <a href="/login">
-          <Button gradientDuoTone="purpleToBlue">
+          <Button gradientDuoTone="purpleToBlue" outline>
             Login
           </Button>
         </a>
