@@ -1,6 +1,9 @@
-const catchAsyncErrors = (errorFunction) => {
+const catchAsyncErrors = (asyncFunction) => {
   return (req, res, next) => {
-    Promise.resolve(errorFunction(req, res, next)).catch(next);
+    Promise.resolve(asyncFunction(req, res, next)).catch((error) => {
+      console.error("Log the error is: ", error);
+      next(error);
+    });
   };
 };
 
