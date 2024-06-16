@@ -1,66 +1,140 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Navbar, TextInput, Button } from "flowbite-react";
-import { AiOutlineSearch } from "react-icons/ai";
+import { styled, alpha } from "@mui/material/styles";
 import { FaMoon } from "react-icons/fa";
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import SearchIcon from "@mui/icons-material/Search";
+import InputBase from "@mui/material/InputBase";
+import { Box, AppBar, Toolbar, Typography, Button } from "@mui/material";
 
 const Header = () => {
-  const path = useLocation.pathname;
+  const Search = styled("div")(({ theme }) => ({
+    position: "relative",
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    marginRight: theme.spacing(2),
+    marginLeft: 0,
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
+      marginLeft: theme.spacing(3),
+      width: "auto",
+    },
+  }));
+
+  const SearchIconWrapper = styled("div")(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  }));
+
+  const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: "inherit",
+    "& .MuiInputBase-input": {
+      padding: theme.spacing(1, 1, 1, 0),
+      // vertical padding + font size from searchIcon
+      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+      transition: theme.transitions.create("width"),
+      width: "100%",
+      "&.Mui-focused fieldset": {
+        borderColor: "red", // Border color on focus
+      },
+      [theme.breakpoints.up("md")]: {
+        width: "20ch",
+      },
+    },
+  }));
+
   return (
-    <>
-      <Navbar className="border-b-3">
-        <Link
-          to="/"
-          className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white "
+    <Box>
+      <AppBar
+        position="static"
+        sx={{ backgroundColor: "#363a42", maxHeight: "500px" }}
+      >
+        <Toolbar
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
         >
-          <span className="px-2 py-1 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-md text-xl text-center me-1 mb-1 text-black">
-            TechiFy
-          </span>
-        </Link>
-        <form>
-          <TextInput
-            type="text"
-            placeholder="Search ..."
-            rightIcon={AiOutlineSearch}
-            className="hidden lg:inline "
-          />
-        </form>
-        <Button
-          className="w-12 h-10 self-center pt-1.5 lg:hidden"
-          color="gray"
-          pill
-        >
-          <AiOutlineSearch />
-        </Button>
-
-        <div className="flex gap-2 md:order-2">
-          <Button className="w-12 h-10 hidden sm:inline" color="gray" pill>
-            <FaMoon />
-          </Button>
-          <Link to="/login">
-            <Button gradientDuoTone="purpleToBlue" outline>
-              Login
-            </Button>
+          <Link to="/">
+            <Typography
+              sx={{
+                paddingX: 2,
+                paddingY: 1,
+                background:
+                  "linear-gradient(to right, #fecaca, #fda4af, #fde047)",
+                "&:hover": {
+                  background:
+                    "linear-gradient(to bottom left, #fecaca, #fda4af, #fde047)",
+                },
+                outline: "none",
+                "&:focus": {
+                  boxShadow: "0 0 0 4px rgba(254, 202, 202, 0.5)",
+                  "&.Mui-focused": {
+                    boxShadow: "0 0 0 4px rgba(252, 165, 165, 0.5)",
+                  },
+                },
+                borderRadius: 1,
+                color: "black",
+                cursor: "pointer",
+              }}
+              variant="h5"
+            >
+              TechiFy
+            </Typography>
           </Link>
-          <Navbar.Toggle />
-        </div>
-
-        <Navbar.Collapse>
-          <Navbar.Link active={path === "/"}>
-            <Link to="/">Home</Link>
-          </Navbar.Link>
-
-          <Navbar.Link active={path === "/about"}>
-            <Link to="/about">About</Link>
-          </Navbar.Link>
-
-          <Navbar.Link active={path === "/contact"}>
-            <Link to="/contact">Contact</Link>
-          </Navbar.Link>
-        </Navbar.Collapse>
-      </Navbar>
-    </>
+          <Box
+            sx={{
+              position: "relative",
+              marginLeft: 2,
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              marginLeft: 2,
+            }}
+          >
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <Typography sx={{ marginLeft: 2 }}>Home</Typography>
+            </Link>
+            <Link to="/about" style={{ textDecoration: "none" }}>
+              <Typography sx={{ marginLeft: 2 }}>About</Typography>
+            </Link>
+            <Link to="/contact" style={{ textDecoration: "none" }}>
+              <Typography sx={{ marginLeft: 2 }}>Contact</Typography>
+            </Link>
+          </Box>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <FaMoon />
+            <Link to="/login">
+              {" "}
+              <Button variant="outlined" sx={{ marginLeft: 5 }}>
+                Login
+              </Button>
+            </Link>
+          </Box>
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 };
 

@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/ContactUs";
 import SignUp from "./pages/SignUp.jsx";
+import Login from "./pages/Login.jsx";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/contact" element={<Contact />} />
         <Route exact path="/signup" element={<SignUp />} />
+        <Route exact path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </BrowserRouter>

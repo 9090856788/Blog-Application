@@ -34,3 +34,24 @@ export const signup = catchAsyncErrors(async (req, res, next) => {
     });
   }
 });
+
+export const signin = catchAsyncErrors(async (req, res, next) => {
+  const { email, password } = req.body;
+  if (!email || !password || email === "" || password === "") {
+    return next(errorHandler(404, "All fields are required!"));
+  }
+  try {
+    const validUser = User.findOne({ email });
+    if (email !== validUser) {
+      return next(errorHandler(500, "User not found!"));
+    }
+    const validPassword = bcryptjs.compareSync(password, validUser);
+    if (!validPassword) {
+      return next(errorHandler(500, "You are entering wrong password!"));
+    }
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
