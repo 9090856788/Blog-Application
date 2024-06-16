@@ -30,7 +30,6 @@ const LoginPage = () => {
     <Box
       sx={{
         backgroundImage: `url(${backgroundImage})`,
-        backgroundColor: "red",
         backgroundSize: "cover",
         backgroundPosition: "center",
         width: "100%",
@@ -55,7 +54,7 @@ const LoginPage = () => {
             <LockOutlined />
           </Avatar>
           <Typography component="h1" variant="h5" align="center">
-            Sign in 
+            Sign in
           </Typography>
           <Box component="form" sx={{ mt: 1 }}>
             <TextField

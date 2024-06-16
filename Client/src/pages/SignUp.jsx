@@ -31,7 +31,6 @@ const SignUp = () => {
     <Box
       sx={{
         backgroundImage: `url(${backgroundImage})`,
-        backgroundColor: "red",
         backgroundSize: "cover",
         backgroundPosition: "center",
         width: "100%",

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { styled, alpha } from "@mui/material/styles";
+import { alpha } from "@mui/material/styles";
 import { FaMoon } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
@@ -8,46 +8,6 @@ import InputBase from "@mui/material/InputBase";
 import { Box, AppBar, Toolbar, Typography, Button } from "@mui/material";
 
 const Header = () => {
-  const Search = styled("div")(({ theme }) => ({
-    position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(3),
-      width: "auto",
-    },
-  }));
-
-  const SearchIconWrapper = styled("div")(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  }));
-
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: "inherit",
-    "& .MuiInputBase-input": {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create("width"),
-      width: "100%",
-      "&.Mui-focused fieldset": {
-        borderColor: "red", // Border color on focus
-      },
-      [theme.breakpoints.up("md")]: {
-        width: "20ch",
-      },
-    },
-  }));
-
   return (
     <Box>
       <AppBar
@@ -83,7 +43,9 @@ const Header = () => {
                 color: "black",
                 cursor: "pointer",
               }}
-              variant="h5"
+              variant="h6"
+              component={Link}
+              to="/"
             >
               TechiFy
             </Typography>
@@ -96,38 +58,67 @@ const Header = () => {
               alignItems: "center",
             }}
           >
-            <Search>
-              <SearchIconWrapper>
+            <Box
+              sx={{
+                position: "relative",
+                borderRadius: 1,
+                backgroundColor: (theme) =>
+                  alpha(theme.palette.common.white, 0.15),
+                marginRight: 2,
+                marginLeft: 0,
+                width: "100%",
+              }}
+            >
+              <Box
+                sx={{
+                  padding: (theme) => theme.spacing(0, 2),
+                  height: "100%",
+                  position: "absolute",
+                  pointerEvents: "none",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
                 <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
+              </Box>
+              <InputBase
                 placeholder="Search…"
                 inputProps={{ "aria-label": "search" }}
+                sx={{
+                  color: "inherit",
+                  padding: (theme) => theme.spacing(1, 1, 1, 0),
+                  paddingLeft: (theme) => `calc(1em + ${theme.spacing(4)})`,
+                  transition: (theme) => theme.transitions.create("width"),
+                  width: "100%",
+                  "&.Mui-focused fieldset": {
+                    borderColor: "red",
+                  },
+                }}
               />
-            </Search>
+            </Box>
           </Box>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              marginLeft: 2,
-            }}
-          >
+          <Box sx={{ display: "flex", alignItems: "center", marginLeft: 2 }}>
             <Link to="/" style={{ textDecoration: "none" }}>
-              <Typography sx={{ marginLeft: 2 }}>Home</Typography>
+              <Typography sx={{ marginLeft: 2, color: "white" }}>
+                Home
+              </Typography>
             </Link>
             <Link to="/about" style={{ textDecoration: "none" }}>
-              <Typography sx={{ marginLeft: 2 }}>About</Typography>
+              <Typography sx={{ marginLeft: 2, color: "white" }}>
+                About
+              </Typography>
             </Link>
             <Link to="/contact" style={{ textDecoration: "none" }}>
-              <Typography sx={{ marginLeft: 2 }}>Contact</Typography>
+              <Typography sx={{ marginLeft: 2, color: "white" }}>
+                Contact
+              </Typography>
             </Link>
           </Box>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <FaMoon />
             <Link to="/login">
-              {" "}
-              <Button variant="outlined" sx={{ marginLeft: 5 }}>
+              <Button variant="outlined" sx={{ marginLeft: 5, color: "white" }}>
                 Login
               </Button>
             </Link>
