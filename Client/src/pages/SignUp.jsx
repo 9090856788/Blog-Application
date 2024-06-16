@@ -125,7 +125,7 @@ const SignUp = () => {
                 style={{
                   textDecoration: "none",
                   fontWeight: "bold",
-                  color: "#000",
+                  color: "#1976d2",
                 }}
               >
                 Sign in

@@ -55,7 +55,7 @@ const LoginPage = () => {
             <LockOutlined />
           </Avatar>
           <Typography component="h1" variant="h5" align="center">
-            Login
+            Sign in 
           </Typography>
           <Box component="form" sx={{ mt: 1 }}>
             <TextField
