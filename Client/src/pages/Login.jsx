@@ -10,6 +10,7 @@ import {
   Paper,
   Avatar,
 } from "@mui/material";
+import { Google } from "@mui/icons-material"; // Import Google icon from Material-UI icons
 import { Link } from "react-router-dom"; // Import Link for navigation
 import { LockOutlined } from "@mui/icons-material";
 
@@ -83,6 +84,18 @@ const LoginPage = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <Typography align="end" sx={{ mt: 1 }}>
+              <Link
+                to="/forgot"
+                style={{
+                  textDecoration: "none",
+                  fontWeight: "bold",
+                  color: "#1976d2",
+                }}
+              >
+                Forgot Password?
+              </Link>
+            </Typography>
             <Button
               fullWidth
               variant="contained"
@@ -96,7 +109,7 @@ const LoginPage = () => {
             <Button
               fullWidth
               variant="contained"
-              color="secondary"
+              startIcon={<Google />}
               sx={{ mt: 1 }}
               onClick={() => {
                 alert("Google Sign-in clicked"); // Replace with actual Google sign-in logic

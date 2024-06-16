@@ -108,7 +108,6 @@ const SignUp = () => {
             <Button
               fullWidth
               variant="contained"
-              color="secondary"
               startIcon={<Google />}
               sx={{ mt: 1 }}
               onClick={() => {
