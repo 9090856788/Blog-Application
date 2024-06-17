@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Contact from "./pages/ContactUs";
 import SignUp from "./pages/SignUp.jsx";
 import Login from "./pages/Login.jsx";
+import ForgotPassword from "./pages/ForgotPassword.jsx";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route exact path="/contact" element={<Contact />} />
         <Route exact path="/signup" element={<SignUp />} />
         <Route exact path="/login" element={<Login />} />
+        <Route exact path="/forgot" element={<ForgotPassword />} />
       </Routes>
       <Footer />
     </BrowserRouter>

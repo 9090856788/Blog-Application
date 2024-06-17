@@ -21,7 +21,7 @@ const Header = () => {
             alignItems: "center",
           }}
         >
-          <Link to="/">
+          <Link to="/" style={{ textDecoration: "none" }}>
             <Typography
               sx={{
                 paddingX: 2,
@@ -42,10 +42,10 @@ const Header = () => {
                 borderRadius: 1,
                 color: "black",
                 cursor: "pointer",
+                textDecoration: "none", // Ensure textDecoration is none
               }}
               variant="h6"
-              component={Link}
-              to="/"
+              component="span"
             >
               TechiFy
             </Typography>
@@ -71,8 +71,8 @@ const Header = () => {
             >
               <Box
                 sx={{
-                  padding: (theme) => theme.spacing(0, 2),
-                  height: "100%",
+                  padding: (theme) => theme.spacing(0, 1), // Adjusted padding to reduce height
+                  height: "100%", // Adjusted height
                   position: "absolute",
                   pointerEvents: "none",
                   display: "flex",
@@ -87,10 +87,11 @@ const Header = () => {
                 inputProps={{ "aria-label": "search" }}
                 sx={{
                   color: "inherit",
-                  padding: (theme) => theme.spacing(1, 1, 1, 0),
-                  paddingLeft: (theme) => `calc(1em + ${theme.spacing(4)})`,
+                  padding: (theme) => theme.spacing(0.5, 1, 0.5, 0), // Adjusted padding to reduce height
+                  paddingLeft: (theme) => `calc(1em + ${theme.spacing(3)})`, // Adjusted paddingLeft to align with new height
                   transition: (theme) => theme.transitions.create("width"),
                   width: "100%",
+                  height: "32px", // Set a fixed height
                   "&.Mui-focused fieldset": {
                     borderColor: "red",
                   },

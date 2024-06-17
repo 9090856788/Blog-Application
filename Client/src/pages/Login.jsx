@@ -10,19 +10,16 @@ import {
   Paper,
   Avatar,
 } from "@mui/material";
-import { Google } from "@mui/icons-material"; // Import Google icon from Material-UI icons
-import { Link } from "react-router-dom"; // Import Link for navigation
+import { Google } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 import { LockOutlined } from "@mui/icons-material";
-
-// Import your background image
-import backgroundImage from "../img/signup.jpg"; // Replace with your actual image path
+import backgroundImage from "../img/forgotpass.jpg";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    // Add your login logic here
     console.log("Email:", email);
     console.log("Password:", password);
   };
@@ -30,110 +27,120 @@ const LoginPage = () => {
   return (
     <Box
       sx={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        width: "100%",
-        height: "100vh", // Full viewport height
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        height: "90vh",
       }}
     >
-      <Container>
-        <Paper
-          elevation={3}
-          sx={{
-            padding: 3,
-            backgroundColor: "transparent",
-            maxWidth: 400,
-            width: "100%",
-          }}
-        >
-          {" "}
-          <Avatar sx={{ marginLeft: 19, background: "green" }}>
-            <LockOutlined />
-          </Avatar>
-          <Typography component="h1" variant="h5" align="center">
-            Sign in
-          </Typography>
-          <Box component="form" sx={{ mt: 1 }}>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <Typography align="end" sx={{ mt: 1 }}>
-              <Link
-                to="/forgot"
-                style={{
-                  textDecoration: "none",
-                  fontWeight: "bold",
-                  color: "#1976d2",
-                }}
-              >
-                Forgot Password?
-              </Link>
+      <Box
+        sx={{
+          flex: 1,
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+      <Box
+        sx={{
+          flex: 1,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "white", // Optional: Adds some transparency to the background
+        }}
+      >
+        <Container>
+          <Paper
+            elevation={3}
+            sx={{
+              padding: 3,
+              backgroundColor: "transparent",
+              maxWidth: 400,
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Avatar sx={{ marginBottom: 2, backgroundColor: "green" }}>
+              <LockOutlined />
+            </Avatar>
+            <Typography component="h1" variant="h5" align="center">
+              Sign in
             </Typography>
-            <Button
-              fullWidth
-              variant="contained"
-              color="primary"
-              sx={{ mt: 3, mb: 2 }}
-              onClick={handleLogin}
-            >
-              Login
-            </Button>
-            {/* Google Sign-in Button (Replace with your actual Google sign-in implementation) */}
-            <Button
-              fullWidth
-              variant="contained"
-              startIcon={<Google />}
-              sx={{ mt: 1 }}
-              onClick={() => {
-                alert("Google Sign-in clicked"); // Replace with actual Google sign-in logic
-              }}
-            >
-              Login with Google
-            </Button>
-            {/* Link to Signup Page */}
-            <Typography align="center" sx={{ mt: 2 }}>
-              Don't have an account?{" "}
-              <Link
-                to="/signup"
-                style={{
-                  textDecoration: "none",
-                  fontWeight: "bold",
-                  color: "#1976d2",
-                }}
+            <Box component="form" sx={{ mt: 1, width: "100%" }}>
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                autoFocus
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <Typography align="end" sx={{ mt: 1 }}>
+                <Link
+                  to="/forgot"
+                  style={{
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                    color: "#1976d2",
+                  }}
+                >
+                  Forgot Password?
+                </Link>
+              </Typography>
+              <Button
+                fullWidth
+                variant="contained"
+                color="primary"
+                sx={{ mt: 3, mb: 2 }}
+                onClick={handleLogin}
               >
-                Sign up
-              </Link>
-            </Typography>
-          </Box>
-        </Paper>
-      </Container>
+                Login
+              </Button>
+              <Button
+                fullWidth
+                variant="contained"
+                startIcon={<Google />}
+                sx={{ mt: 1 }}
+                onClick={() => alert("Google Sign-in clicked")}
+              >
+                Login with Google
+              </Button>
+              <Typography align="center" sx={{ mt: 2 }}>
+                Don't have an account?{" "}
+                <Link
+                  to="/signup"
+                  style={{
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                    color: "#1976d2",
+                  }}
+                >
+                  Sign up
+                </Link>
+              </Typography>
+            </Box>
+          </Paper>
+        </Container>
+      </Box>
     </Box>
   );
 };
