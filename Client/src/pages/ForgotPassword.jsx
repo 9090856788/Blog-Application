@@ -104,14 +104,14 @@ const ForgotPassword = () => {
               <Typography align="center" sx={{ mt: 1 }}>
                 Already have an account?{" "}
                 <Link
-                  to="/login"
+                  to="/signup"
                   style={{
                     textDecoration: "none",
                     fontWeight: "bold",
                     color: "#1976d2",
                   }}
                 >
-                  Sign in
+                  Sign up
                 </Link>
               </Typography>
             </Box>
