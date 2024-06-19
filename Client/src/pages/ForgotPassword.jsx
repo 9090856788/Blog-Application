@@ -9,7 +9,7 @@ import {
   Paper,
   Avatar,
 } from "@mui/material";
-import { LockOutlined, Send } from "@mui/icons-material"; // Import the Send icon
+import { LockOutlined, Send } from "@mui/icons-material";
 import backgroundImage from "../img/login.jpg";
 import { Link } from "react-router-dom";
 
@@ -24,12 +24,14 @@ const ForgotPassword = () => {
     <Box
       sx={{
         display: "flex",
-        height: "90vh",
+        minHeight: "100vh",
+        backgroundColor: "#ffffff", // Background color for the whole page
       }}
     >
       <Box
         sx={{
           flex: 1,
+          display: { xs: "none", sm: "block" }, // Hide on small screens
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -41,15 +43,15 @@ const ForgotPassword = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "white", // Optional: Adds some transparency to the background
         }}
       >
-        <Container>
+        <Container maxWidth="sm">
+          {" "}
+          {/* Limit container width for better readability */}
           <Paper
             elevation={3}
             sx={{
               padding: 3,
-              backgroundColor: "transparent",
               maxWidth: 400,
               width: "100%",
               display: "flex",

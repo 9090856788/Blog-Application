@@ -8,6 +8,8 @@ import {
   Container,
   Paper,
   Avatar,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { Link } from "react-router-dom"; // Assuming you use React Router for navigation
 import { Google } from "@mui/icons-material"; // Import Google icon from Material-UI icons
@@ -21,6 +23,9 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const handleSignUp = () => {
     // Add your sign-up logic here
     console.log("Email:", email);
@@ -30,7 +35,7 @@ const SignUp = () => {
   return (
     <Box
       sx={{
-        backgroundImage: `url(${backgroundImage})`,
+        backgroundImage: isMobile ? "" : `url(${backgroundImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         width: "100%",
@@ -38,6 +43,7 @@ const SignUp = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: isMobile ? "#ffffff" : "transparent",
       }}
     >
       <Container>

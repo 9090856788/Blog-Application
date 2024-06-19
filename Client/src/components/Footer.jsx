@@ -11,24 +11,37 @@ const Footer = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        py: 3,
-        px: 2,
+        py: { xs: 2, sm: 3 },
+        px: { xs: 1, sm: 2 },
         mt: "auto",
         backgroundColor: "#363a42",
         color: "#fff",
       }}
     >
-      <Typography variant="body2" sx={{ mb: 1 }}>
+      <Typography
+        variant="body2"
+        sx={{
+          mb: 1,
+          textAlign: "center",
+          fontSize: { xs: "0.75rem", sm: "1rem" },
+        }}
+      >
         &copy; {new Date().getFullYear()} Your Company Name. All rights
         reserved.
       </Typography>
-      <Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          flexWrap: "wrap",
+        }}
+      >
         <IconButton
           component="a"
           href="https://www.facebook.com"
           target="_blank"
           rel="noopener noreferrer"
-          sx={{ color: "#fff" }}
+          sx={{ color: "#fff", mx: { xs: 0.5, sm: 1 } }}
         >
           <Facebook />
         </IconButton>
@@ -37,7 +50,7 @@ const Footer = () => {
           href="https://www.twitter.com"
           target="_blank"
           rel="noopener noreferrer"
-          sx={{ color: "#fff" }}
+          sx={{ color: "#fff", mx: { xs: 0.5, sm: 1 } }}
         >
           <Twitter />
         </IconButton>
@@ -46,7 +59,7 @@ const Footer = () => {
           href="https://www.instagram.com"
           target="_blank"
           rel="noopener noreferrer"
-          sx={{ color: "#fff" }}
+          sx={{ color: "#fff", mx: { xs: 0.5, sm: 1 } }}
         >
           <Instagram />
         </IconButton>
@@ -55,7 +68,7 @@ const Footer = () => {
           href="https://www.linkedin.com"
           target="_blank"
           rel="noopener noreferrer"
-          sx={{ color: "#fff" }}
+          sx={{ color: "#fff", mx: { xs: 0.5, sm: 1 } }}
         >
           <LinkedIn />
         </IconButton>
