@@ -15,7 +15,7 @@ export const signup = catchAsyncErrors(async (req, res, next) => {
     email === "" ||
     password === ""
   ) {
-    return next(errorHandler(404, "All field are required!"));
+    return next(errorHandler(404, "All fields are required!"));
   }
   try {
     const hashedPassword = bcryptjs.hashSync(password, 10);
@@ -38,42 +38,27 @@ export const signup = catchAsyncErrors(async (req, res, next) => {
 
 // user SignIn Api
 export const signin = catchAsyncErrors(async (req, res, next) => {
-  const { email, userName, password } = req.body;
-  if (
-    !email ||
-    !password ||
-    !userName ||
-    email === "" ||
-    password === "" ||
-    userName === ""
-  ) {
-    return next(errorHandler(404, "All fields are required!"));
+  const { email, password } = req.body;
+  if (!email || !password || email === "" || password === "") {
+    return next(errorHandler(400, "All fields are required!"));
   }
   try {
-    const validUser = User.findOne({ email });
-    const validUserName = User.findOne({ userName });
-    if (email !== validUser) {
+    const validUser = await User.findOne({ email });
+    if (!validUser) {
       return next(errorHandler(500, "User not found!"));
     }
-    if (userName !== validUserName) {
-      return next(errorHandler(500, "User not found!"));
-    }
-    const validPassword = bcryptjs.compareSync(
-      password,
-      validUser.password,
-      validUserName.password
-    );
+    const validPassword = bcryptjs.compareSync(password, validUser.password);
     if (!validPassword) {
       return next(errorHandler(500, "Invalid password!"));
     }
-    // if userName/email and Password are correct then generate a web Token.
+    // if email and Password are correct then generate a web Token.
     const token = jwt.sign(
       {
-        id: this._id,
+        id: validUser._id, // Reference the validUser._id for JWT token generation
       },
       process.env.JWT_SECRET
     );
-    const { password: pass, ...rest } = validUser.password;
+    const { password: pass, ...rest } = validUser._doc;
     res
       .status(200)
       .cookie("access token", token, {
@@ -81,11 +66,20 @@ export const signin = catchAsyncErrors(async (req, res, next) => {
       })
       .json({
         message: "Sign in Successfully",
-        ...rest,
+        rest,
       });
   } catch (error) {
     res.status(500).json({
       message: error.message,
     });
   }
+});
+
+// create getAllUser api for getting all registered User
+export const getAllUser = catchAsyncErrors(async (req, res, next) => {
+  const allUser = await User.find();
+  res.status(200).json({
+    message: "Fetched all the user details",
+    allUser,
+  });
 });
