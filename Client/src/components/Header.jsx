@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { alpha } from "@mui/material/styles";
-import { FaMoon } from "react-icons/fa";
+// import { FaMoon } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -184,7 +184,7 @@ const Header = () => {
               marginTop: { xs: 1, sm: 0 },
             }}
           >
-            <FaMoon />
+            
             <Link to="/login">
               <Button
                 variant="outlined"

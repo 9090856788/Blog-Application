@@ -9,6 +9,7 @@ import Contact from "./pages/ContactUs";
 import SignUp from "./pages/SignUp.jsx";
 import Login from "./pages/Login.jsx";
 import ForgotPassword from "./pages/ForgotPassword.jsx";
+import LandingPage from "./components/LandingPage.jsx";
 
 const App = () => {
   return (
