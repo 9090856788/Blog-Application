@@ -6,12 +6,10 @@ import {
   Box,
   Container,
   Paper,
-  Avatar,
   Typography,
   TextField,
   Button,
 } from "@mui/material";
-import { Link } from "react-router-dom";
 
 const ContactUs = () => {
   return (
@@ -84,7 +82,6 @@ const ContactUs = () => {
                   label="Email Address"
                   name="email"
                   autoComplete="Email Address"
-                  autoFocus
                 />
                 <TextField
                   variant="standard"
@@ -95,7 +92,6 @@ const ContactUs = () => {
                   label="Phone Number"
                   name="phone"
                   autoComplete="phone number"
-                  autoFocus
                 />
                 <TextField
                   variant="standard"
@@ -107,7 +103,6 @@ const ContactUs = () => {
                   label="Message"
                   name="message"
                   autoComplete="message"
-                  autoFocus
                 />
                 <Button
                   variant="contained"
