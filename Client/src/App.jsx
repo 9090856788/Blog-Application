@@ -9,12 +9,14 @@ import Contact from "./pages/ContactUs";
 import SignUp from "./pages/SignUp.jsx";
 import Login from "./pages/Login.jsx";
 import ForgotPassword from "./pages/ForgotPassword.jsx";
+import UserProfile from "./components/UserProfile"
 
 const App = () => {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
+        <Route exact path="/UserProfile"  element={<UserProfile/>}/>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/contact" element={<Contact />} />
