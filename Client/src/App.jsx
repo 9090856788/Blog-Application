@@ -9,12 +9,15 @@ import Contact from "./pages/ContactUs";
 import SignUp from "./pages/SignUp.jsx";
 import Login from "./pages/Login.jsx";
 import ForgotPassword from "./pages/ForgotPassword.jsx";
+import ProfileUser from "./components/ProfileUser.jsx";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Header />
+
       <Routes>
+        <Route exact path ='/profile' element={<ProfileUser/>}/>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/contact" element={<Contact />} />
