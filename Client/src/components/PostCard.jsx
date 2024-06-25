@@ -1,108 +1,100 @@
 /* eslint-disable no-unused-vars */
-// src/components/PostCard.js
 import React from "react";
 import { Box, Button, Typography, SvgIcon } from "@mui/material";
 import { Facebook, Twitter, Instagram, LinkedIn } from "@mui/icons-material";
 
 const PostCard = () => {
   return (
-    <>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh", // Set minimum height for the container
+        padding: "20px",
+        background:
+          "linear-gradient(to bottom right, #ffcccc, #ccccff, #ccffcc, #ffffcc)",
+      }}
+    >
       <Box
-        name="Container"
         sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          boxShadow: "14 14 15 rgba(0, 0, 0, 0.2)",
+          width: "100%", // Adjust width as needed
+          maxWidth: "400px", // Set max-width for responsiveness
+          boxShadow: "0 1px 15px rgba(0, 0, 0, 0.2)",
+          borderRadius: "15px",
+          backdropFilter: "blur(10px)",
+          overflow: "hidden",
         }}
       >
         <Box
-          name="Card Container"
           sx={{
-            width: "350px",
-            // height: "480px",
-            boxShadow: "0 1px 15px rgba(0, 0, 0, 0.2)",
-            borderRadius: "15px",
-            backdropFilter: "blur(10px)",
             overflow: "hidden",
-            background:
-              "linear-gradient(to bottom right, #ffcccc, #ccccff, #ccffcc, #ffffcc)",
+            borderRadius: "10px",
           }}
         >
+          <img
+            src="/img/contact.jpg" // Replace with your image URL
+            alt="Blog Image"
+            style={{
+              width: "100%",
+              height: "auto", // Ensure the image scales properly
+              display: "block",
+            }}
+          />
+        </Box>
+        <Box sx={{ padding: "20px", textAlign: "center" }}>
+          <Typography variant="h5" sx={{ color: "#000", marginBottom: 1 }}>
+            How to create a Blog
+          </Typography>
+          <Typography sx={{ color: "#000", marginBottom: 2 }}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam,
+            nostrum!
+          </Typography>
           <Box
             sx={{
-              left: "20px",
-              right: "20px",
               display: "flex",
               justifyContent: "center",
-              overflow: "hidden",
+              alignItems: "center",
+              marginBottom: 2,
             }}
           >
-            <img
-              src="/img/contact.jpg" // Replace with your image URL
-              alt="Blog Image"
-              style={{
-                width: "100%",
-                // height: "auto",
-                borderRadius: "10px",
-              }}
-            />
+            {/* Adjusted social icons */}
+            <Button className="social-button" sx={{ p: 1, mr: 1 }}>
+              <SvgIcon
+                component={Facebook}
+                sx={{ fontSize: "2rem", color: "#000" }}
+              />
+            </Button>
+            <Button className="social-button" sx={{ p: 1, mr: 1 }}>
+              <SvgIcon
+                component={Twitter}
+                sx={{ fontSize: "2rem", color: "#000" }}
+              />
+            </Button>
+            <Button className="social-button" sx={{ p: 1, mr: 1 }}>
+              <SvgIcon
+                component={Instagram}
+                sx={{ fontSize: "2rem", color: "#000" }}
+              />
+            </Button>
+            <Button className="social-button" sx={{ p: 1 }}>
+              <SvgIcon
+                component={LinkedIn}
+                sx={{ fontSize: "2rem", color: "#000" }}
+              />
+            </Button>
           </Box>
-          <Box
-            sx={{
-              marginTop: 2,
-              left: "20px",
-              right: "20px",
-              textAlign: "center",
-            }}
+          <Button
+            className="view-more-button"
+            fullWidth
+            variant="outlined"
+            sx={{ color: "#000" }}
           >
-            <Typography className="title" variant="h5" sx={{ color: "#000" }}>
-                How to create a Blog
-            </Typography>
-            <Typography className="text" sx={{ color: "#000" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, nostrum!
-            </Typography>
-          </Box>
-          <Box>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                margin: 1,
-              }}
-            >
-              <Button className="social-button social-button1">
-                <SvgIcon component={Facebook} sx={{ color: "#000" }} />
-              </Button>
-
-              <Button className="social-button social-button1">
-                <SvgIcon component={Twitter} sx={{ color: "#000" }} />
-              </Button>
-
-              <Button className="social-button social-button1">
-                <SvgIcon component={Instagram} sx={{ color: "#000" }} />
-              </Button>
-
-              <Button className="social-button social-button1">
-                <SvgIcon component={LinkedIn} sx={{ color: "#000" }} />
-              </Button>
-            </Box>
-            <Box sx={{ display: "flex", alignItems: "center" }}>
-              <Button
-                className="view-more-button"
-                fullWidth
-                variant="outlined"
-                sx={{ color: "#000", margin: 2 }}
-              >
-                Read More
-              </Button>
-            </Box>
-          </Box>
+            Read More
+          </Button>
         </Box>
       </Box>
-    </>
+    </Box>
   );
 };
 
